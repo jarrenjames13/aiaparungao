@@ -12,7 +12,7 @@ const Navbar = () => {
           <div className="pl-5">
             <Link to="/" className="flex items-center gap-2.5">
               <img className="w-12 h-12" src="AIA.png" alt="Logo-AIA" />
-              <span className="text-3xl font-bold font-mono bg-clip-text text-transparent bg-gradient-to-r from-red-700 to-red-500 tracking-wider">
+              <span className="sm:text-3xl text-xl font-bold font-mono bg-clip-text text-transparent bg-gradient-to-r from-red-700 to-red-500 tracking-wider">
                 AIA-Parungao
               </span>
             </Link>
