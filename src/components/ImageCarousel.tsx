@@ -21,7 +21,7 @@ const ImageCarousel = () => {
       pagination={{ clickable: true }}
       autoplay={{ delay: 3000 }}
       loop
-      className="w-full  sm:h-96 h-56 rounded-lg"
+      className="w-full sm:h-96 h-56 rounded-lg"
     >
       {images.map((src, index) => (
         <SwiperSlide key={index}>
