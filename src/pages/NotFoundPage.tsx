@@ -45,43 +45,77 @@ const NotFoundPage = () => {
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content={pageTitle} />
         <meta name="twitter:description" content={errorDetails.message} />
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "WebPage",
+              "name": "${pageTitle}",
+              "description": "${errorDetails.message}",
+              "url": "${window.location.href}",
+              "breadcrumb": {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                  {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "${window.location.origin}"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Error Page"
+                  }
+                ]
+              }
+            }
+          `}
+        </script>
       </Helmet>
 
       <main className="bg-gray-100 font-sans text-gray-800 min-h-screen flex items-center justify-center p-4">
         <article className="bg-white rounded-lg shadow-lg p-8 max-w-md w-full text-center">
+          <h1 className="text-2xl font-semibold text-gray-800 mb-4">
+            {errorDetails.title}
+          </h1>
+          
           <header>
             <div className="text-red-500 text-7xl mb-4" aria-hidden="true">
               <TriangleAlert size={84} className="mx-auto" />
             </div>
-            <div 
+            <h2 
               className="text-red-500 text-6xl font-bold mb-2" 
               aria-label={`Error code ${errorDetails.code}`}
             >
               {errorDetails.code}
-            </div>
-            <h1 className="text-2xl font-semibold text-gray-700 mb-4">
-              {errorDetails.title}
-            </h1>
+            </h2>
           </header>
+
           <section className="text-gray-500 mb-8">
+            <h3 className="text-lg font-medium mb-2">What happened?</h3>
             <p>{errorDetails.message}</p>
           </section>
-          <nav className="flex flex-col sm:flex-row justify-center gap-4" aria-label="Error page navigation">
-            <button 
-              onClick={goBack}
-              className="px-6 py-3 border border-blue-500 text-blue-500 rounded-md font-medium hover:bg-blue-50 transition-colors"
-              aria-label="Go back to previous page"
-            >
-              Go Back
-            </button>
-            <Link 
-              to="/" 
-              className="px-6 py-3 bg-blue-500 text-white rounded-md font-medium hover:bg-blue-600 transition-colors"
-              aria-label="Go to homepage"
-            >
-              Go Home
-            </Link>
-          </nav>
+
+          <section className="mb-6">
+            <h3 className="text-lg font-medium mb-3">What can you do now?</h3>
+            <nav className="flex flex-col sm:flex-row justify-center gap-4" aria-label="Error page navigation">
+              <button 
+                onClick={goBack}
+                className="px-6 py-3 border border-blue-500 text-blue-500 rounded-md font-medium hover:bg-blue-50 transition-colors"
+                aria-label="Go back to previous page"
+              >
+                Go Back
+              </button>
+              <Link 
+                to="/" 
+                className="px-6 py-3 bg-blue-500 text-white rounded-md font-medium hover:bg-blue-600 transition-colors"
+                aria-label="Go to homepage"
+              >
+                Go Home
+              </Link>
+            </nav>
+          </section>
         </article>
       </main>
     </>
