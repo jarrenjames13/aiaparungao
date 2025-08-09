@@ -105,8 +105,8 @@ const AboutPage = () => {
         </div>
         <div className="flex justify-center mt-6">
           <Link to="/contact">
-            <button className="w-full sm:w-auto mt-4 px-6 py-2 bg-blue-600 text-white rounded-lg text-base sm:text-lg font-semibold shadow hover:bg-blue-700 transition-colors">
-              Contact Us to learn more
+            <button className="btn btn-primary mt-4 sm:mt-0">
+              Interested? Contact us
             </button>
           </Link>
         </div>

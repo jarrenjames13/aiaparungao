@@ -26,7 +26,7 @@ const TeamCarousel = () => {
           <img
             src={src}
             alt={`Slide ${index + 1}`}
-            className="mx-auto w-full h-full object-cover rounded-lg"
+            className="mx-auto w-full select-none h-full object-cover rounded-lg"
           />
         </SwiperSlide>
       ))}

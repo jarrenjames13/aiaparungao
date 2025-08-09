@@ -26,7 +26,7 @@ const AboutCarousel = () => {
           <img
             src={src}
             alt={`Slide ${index + 1}`}
-            className="mx-auto w-auto h-full object-contain  rounded-lg"
+            className="mx-auto w-auto h-full object-contain select-none rounded-lg"
           />
         </SwiperSlide>
       ))}
